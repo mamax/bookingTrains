@@ -1,0 +1,14 @@
+
+<suite name="Suite ua.gov.uz.test">
+<listeners>
+    <listener class-name="ua.gov.uz.listener.Screenshot" />
+</listeners>
+ 
+ 
+<test name="Test booking">
+    <classes>
+        <class name="ua.gov.uz.test.OrderTest" ></class>  
+    </classes>
+</test>
+ 
+</suite>

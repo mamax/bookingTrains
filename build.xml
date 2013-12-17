@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="java_auto" default="build" basedir=".">
+
+	<property name="reportng.title" value="Booking tikets">
+	</property>
+
+	<property name="include1" value="testng.xml"></property>
+
+	<property name="suitethreadpoolsize" value="1">
+	</property>
+
+	<property name="project.dir" value="${basedir}">
+	</property>
+	<property name="src.dir" value="${project.dir}/src">
+	</property>
+
+	<property name="reports.dir" value="${project.dir}/reports">
+	</property>
+	
+	<property name="screenshots.dir" value="${project.dir}/screenshots">
+	</property>
+	
+	<property name="email.dir" value="${project.dir}/email">
+	</property>
+
+	<property name="build.dir" value="${project.dir}/build">
+	</property>
+	<property name="libs.dir" value="${project.dir}/libs/" />
+
+	<taskdef resource="testngtasks" classpath="${libs.dir}/testng-6.8.5.jar">
+	</taskdef>
+
+	<path id="master-classpath">
+		<fileset dir="${libs.dir}">
+			<include name="*.jar">
+			</include>
+		</fileset>
+		<pathelement path="${build.dir}">
+		</pathelement>
+	</path>
+	
+	<path id="test.c">
+			 <fileset dir="${libs.dir}" includes="*.jar"/>
+		</path>
+
+	<target name="start-server" description="Starts selenium ">
+	        <java jar="${project.dir}/libs/selenium-server-standalone-2.37.0.jar" fork = "true"/>
+	    </target>
+	
+	<target name="clean" description="Removes build directory and test results.">
+		
+		<delete dir="${build.dir}">
+		</delete>
+		
+		<delete dir="${reports.dir}">
+		</delete>
+		
+		<delete dir="${screenshots.dir}">
+		</delete>
+		
+	</target>
+
+	<target name="createdirs" depends="clean" description="Create folders needed.">
+		
+		<mkdir dir="${build.dir}">
+		</mkdir>
+		
+		<mkdir dir="${reports.dir}">
+		</mkdir>
+		
+		<mkdir dir="${screenshots.dir}">
+		</mkdir>
+		
+	</target>
+
+	<target name="compile" depends="createdirs" description="Build Java files.">
+		<javac destdir="${build.dir}" debug="true" deprecation="false" optimize="false" failonerror="true" includeantruntime="false">
+			<src path="${src.dir}">
+			</src>
+			<classpath refid="master-classpath">
+			</classpath>
+		</javac>
+	</target>
+
+	<target name="copyprops" depends="compile" description="Copy .properties files.">
+		<copy todir="${build.dir}">
+			<fileset dir="${src.dir}" excludes="**/*.java" />
+		</copy>
+	</target>
+
+
+	<target name="run" depends="copyprops" description="Run all tests.">
+		<echo>RUN THE TESTS!</echo>
+
+		<property environment="env" />
+
+		<testng classpathref="master-classpath" outputdir="${reports.dir}" 
+		haltonfailure="false"
+		useDefaultListeners="false" 
+		listeners="org.uncommons.reportng.HTMLReporter" 
+		failureproperty="test.failure"> 
+			
+		<!--	
+		<xmlfileset dir ="${project.dir}">
+			<include name="${include1}" />
+		</xmlfileset>
+		-->
+			
+		<xmlfileset dir="${project.dir}" includes="testng.xml" />
+
+		<sysproperty key="org.uncommons.reportng.title" value="${reportng.title}" />
+		<sysproperty key="org.uncommons.reportng.locale" value="en" />
+		<sysproperty key="org.uncommons.reportng.escape-output" value="false" />
+			
+        <sysproperty key="org.uncommons.reportng.stylesheet" value="${reportNGcss}" />
+        <!--
+        <reporter classname="util.ScreenshotHTMLReporter"/>
+		-->
+		<sysproperty key="screenshots.dir" value="${screenshots.dir}/" />
+		<sysproperty key="screenshots.url" value="${project.dir}/reports"/>
+			
+	</testng>
+
+	<sleep seconds="3" />
+
+</target>
+	
+	<target name="email" depends="run" description="emailing reports.">
+				<java classname="ua.gov.uz.util.SendMail" classpath="${build.dir}" classpathref="test.c" />
+		    </target>
+	
+	
+<target name="cleanbuilddir" depends="email" description="Removes build directory.">
+	<delete dir="${build.dir}">
+	</delete>
+</target>
+
+<target name="build" description="Removes previous results and test all." depends="cleanbuilddir">
+	<echo>BUILD FINISHED!</echo>
+</target>
+
+</project>
