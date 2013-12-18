@@ -23,14 +23,14 @@ public class Screenshot extends TestListenerAdapter {
 		File file = new File("");
 
 		Reporter.setCurrentTestResult(result);
-		System.out.println(file.getAbsolutePath());
+//		System.out.println(file.getAbsolutePath());
 //		Reporter.log(file.getAbsolutePath());
 		
 		//----------------------------------------
 		//		Reporter.log("screenshot saved at " + file.getAbsolutePath()
 //				+ "//screenshots//" + result.getName() + ".jpg");
 //		Reporter.log("<a href='../" + result.getName() + ".jpg' <img src='../"	+ result.getName() + ".jpg' hight='100' width='100'/> </a>");
-		Reporter.log("screenshot for "+ result +"<div style=\"height:768px; width: 1024px; overflow:scroll\"><img src=\"../"+result.getName() +".jpg"+"\"></div>", true);
+//		Reporter.log("screenshot for "+ result +"<div style=\"height:768px; width: 1024px; overflow:scroll\"><img src=\"../"+result.getName() +".jpg"+"\"></div>", true);
 		
 		try {
 			BaseTest.CaptureScreenshot(result.getName());
