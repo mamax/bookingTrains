@@ -73,9 +73,7 @@ public class ResultPage extends Page {
 
 			AddOrder.click();
 
-			new WebDriverWait(driver, 10)
-					.until(ExpectedConditions.visibilityOfElementLocated(By
-							.xpath(begin + (i + 1) + end)));
+			new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(begin + (i + 1) + end)));
 
 		}
 

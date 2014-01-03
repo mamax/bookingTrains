@@ -15,6 +15,7 @@ public class OrderPage extends Page {
 		// TODO Auto-generated constructor stub
 	}
 
+	
 	@FindBy(xpath = ".//*[@id='stations_from']/div[1]")
 	private WebElement suggestChoiceStationFrom;
 
@@ -32,6 +33,7 @@ public class OrderPage extends Page {
 
 	@FindBy(xpath = ".//*[@id='date_dep']")
 	private WebElement chooseFieldDateTrip;
+	
 
 	public ResultPage getBilet(String stationFrom, String stationTo,
 			String date, String time) {

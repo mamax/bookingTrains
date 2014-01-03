@@ -9,42 +9,41 @@ import ua.gov.uz.page.ResultPage;
 
 @Listeners(ua.gov.uz.listener.Screenshot.class)
 public class OrderTest extends BaseTest {
+	
+	
+	String toCity = "Винница";
+	String fromCity = "Киев";
+	String date = "28.01.2014";
+	String time = "22:00";
 
-	private ResultPage resultPage;
-	private OrderPage orderPage;
-
+	
 	@Test(enabled = true, priority = 0)
 	public void Kyiv() throws Exception {
 
-		String fromCity = "Киев";
-		String toCity = "Винница";
-		String date = "28.12.2013";
-		String time = "18:00";
-
-		orderPage = PageFactory.initElements(getWebdriver(), OrderPage.class);
+		OrderPage orderPage = new OrderPage(driver);
 		orderPage.open();
-		resultPage = orderPage.getBilet(fromCity, toCity, date, time);
+		ResultPage resultPage = orderPage.getBilet(fromCity, toCity, date, time);
 		resultPage.showingPrices();
 
 		CaptureScreenshot("Kyiv");
-
+		
 	}
-
+	
+	
 	@Test(enabled = true, priority = 1)
 	public void Vinnytsya() throws Throwable {
 
 		String fromCity = "Винница";
 		String toCity = "Киев";
-		String date = "28.12.2013";
-		String time = "18:00";
+		String date = "28.01.2014";
+		String time = "20:00";
 
-		orderPage = PageFactory.initElements(getWebdriver(), OrderPage.class);
+		OrderPage orderPage = new OrderPage(driver);
 		orderPage.open();
-		resultPage = orderPage.getBilet(fromCity, toCity, date, time);
+		ResultPage resultPage = orderPage.getBilet(fromCity, toCity, date, time);
 		resultPage.showingPrices();
 
 		CaptureScreenshot("Vinnytsya");
-
 	}
 
 }
