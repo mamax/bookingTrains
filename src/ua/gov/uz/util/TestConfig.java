@@ -26,6 +26,7 @@ public class TestConfig {
 	System.out.println(OR.getProperty("baseUrl"));
 	System.out.println(OR.getProperty("fromCity"));
 	System.out.println(OR.getProperty("dateForward"));
+	System.out.println(System.getProperty("user.dir")+ "\\libs\\chromedriver.exe");
 
 	
 	}

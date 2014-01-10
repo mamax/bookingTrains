@@ -20,13 +20,15 @@ public abstract class Page {
 	
 	
 	protected WebDriver driver;
+	public String baseUrl = "http://booking.uz.gov.ua/ru";
 
-	public Page(WebDriver driver) {
-		this.driver = BaseTest.setUp();
+	public Page(WebDriver driver) throws Exception {
+		this.driver = BaseTest.setUp("firefox");
         PageFactory.initElements(driver, this);
 	}
 	
 	public abstract void open();
+	
 	
 	
 	

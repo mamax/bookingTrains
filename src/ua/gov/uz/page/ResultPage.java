@@ -13,7 +13,7 @@ import org.testng.Assert;
 
 public class ResultPage extends Page {
 
-	public ResultPage(WebDriver driver) {
+	public ResultPage(WebDriver driver) throws Exception {
 		super(driver);
 		// TODO Auto-generated constructor stub
 	}
@@ -53,12 +53,12 @@ public class ResultPage extends Page {
 
 	public void showingPrices() {
 
-		new WebDriverWait(driver, 10).until(ExpectedConditions
-				.visibilityOfAllElements(numberTrains));
+		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfAllElements(numberTrains));
 
 		for (int i = 0; i < ListButtonSelect.size(); i++) {
 
 			ListButtonSelect.get(i).click();
+			
 			ListPlaces.findElement(By.className("free")).click();
 			Assert.assertTrue(AddChoise.isDisplayed());
 			Assert.assertTrue(AddOrder.isDisplayed());
@@ -78,6 +78,7 @@ public class ResultPage extends Page {
 		}
 
 	}
+	
 
 	public static boolean isPresentAndDisplayed(WebElement element) {
 		try {

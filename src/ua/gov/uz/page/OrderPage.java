@@ -9,12 +9,11 @@ import org.openqa.selenium.support.ui.Select;
 
 public class OrderPage extends Page {
 
-	public OrderPage(WebDriver driver) {
+	public OrderPage(WebDriver driver) throws Exception {
 		super(driver);
 
 		// TODO Auto-generated constructor stub
 	}
-
 	
 	@FindBy(xpath = ".//*[@id='stations_from']/div[1]")
 	private WebElement suggestChoiceStationFrom;
@@ -36,7 +35,7 @@ public class OrderPage extends Page {
 	
 
 	public ResultPage getBilet(String stationFrom, String stationTo,
-			String date, String time) {
+			String date, String time) throws Exception {
 
 		textFieldFrom.sendKeys(stationFrom);
 		suggestChoiceStationFrom.click();
@@ -48,7 +47,7 @@ public class OrderPage extends Page {
 		setTime(time);
 		searchButton.click();
 
-		return PageFactory.initElements(driver, ResultPage.class);
+		return new ResultPage(driver);
 
 	}
 
@@ -69,7 +68,8 @@ public class OrderPage extends Page {
 	@Override
 	public void open() {
 		// TODO Auto-generated method stub
-		driver.get("http://booking.uz.gov.ua/ru/");
+		driver.get(baseUrl + "/");
+		
 	}
 
 }
