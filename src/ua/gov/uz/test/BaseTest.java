@@ -45,7 +45,7 @@ public class BaseTest {
 	public static Properties CONFIG = null;
 	public static Properties OR = null;
 	public static WebDriver dr=null;
-	public static RemoteWebDriver driver=null;
+	public static EventFiringWebDriver driver=null;
 	public static String path = System.getProperty("user.dir") + "\\screenshots\\";
 	private boolean isInitalized;
 	public static DesiredCapabilities capability=null;
@@ -138,9 +138,9 @@ public class BaseTest {
 			}
 			isBrowserOpened = true;
 		
-//			driver = new EventFiringWebDriver(dr);
+			driver = new EventFiringWebDriver(dr);
 			driver.manage().timeouts().implicitlyWait(12, TimeUnit.SECONDS);
-			driver.manage().window().maximize(); 
+//			driver.manage().window().maximize(); 
 		
 		}
 				return driver;
@@ -149,8 +149,8 @@ public class BaseTest {
 	
 //	remote webdriver
 //	public static  WebDriver  setUpRemote(){
-	@BeforeMethod
-	@Parameters({"browser"})
+//	@BeforeMethod
+//	@Parameters({"browser"})
 	public static  WebDriver setUpRemote(String browser) throws Exception {
 		
 		if (!isBrowserOpened) {
@@ -198,7 +198,7 @@ public class BaseTest {
 		              capability.setVersion("11.15");
 		           }
 	 
-		driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
+//		driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
 		isBrowserOpened = true;
 		driver.manage().timeouts().implicitlyWait(12, TimeUnit.SECONDS);
 	

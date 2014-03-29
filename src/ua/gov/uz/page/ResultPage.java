@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -23,25 +24,28 @@ public class ResultPage extends Page {
 
 	@FindBy(css = ".num")
 	private List<WebElement> numberTrains;
+	
 
 	@FindBy(css = ".place>div>button")
 	private List<WebElement> ListButtonSelect;
+	
 
 	@FindBy(id = "places")
 	private WebElement ListPlaces;
-
+	
 	@FindBy(css = ".lastname")
 	private WebElement LastName;
-
+	
+	@CacheLookup
 	@FindBy(css = ".firstname")
 	private WebElement FirstName;
-
+	
 	@FindBy(xpath = ".//*[@id='ts_chs_tbl']/button")
 	private WebElement AddOrder;
-
+	
 	@FindBy(css = "#ts_chs_tbl")
 	private WebElement AddChoise;
-
+	
 	@FindBy(css = ".bedding>input")
 	private WebElement Postel;
 
@@ -60,8 +64,11 @@ public class ResultPage extends Page {
 			ListButtonSelect.get(i).click();
 			
 			ListPlaces.findElement(By.className("free")).click();
-			Assert.assertTrue(AddChoise.isDisplayed());
-			Assert.assertTrue(AddOrder.isDisplayed());
+			
+//			Assert.assertTrue(AddChoise.isDisplayed());
+//			Assert.assertTrue(AddOrder.isDisplayed());
+//			new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#ts_chs_tbl")));
+//			new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(AddChoise));
 
 			if (isPresentAndDisplayed(Postel)) {
 

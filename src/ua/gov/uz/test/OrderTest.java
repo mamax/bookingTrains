@@ -25,21 +25,22 @@ public class OrderTest extends BaseTest {
 		//no remote 
 		orderPage = PageFactory.initElements(setUp(), OrderPage.class);
 		orderPage.open();
-		ResultPage resultPage = orderPage.getBilet("Киев", "Винница", "29.01.2014", "22:00");
+		ResultPage resultPage = orderPage.getBilet("Киев", "Винница", "07.03.2014", "16:00");
 		resultPage.showingPrices();
 
 		CaptureScreenshot("Kyiv");
 		
 	}
 	
-	@Test(enabled = true, priority = 1)
+	@Test(enabled = false, priority = 1)
 	public void Vinnytsya() throws Throwable {
 
 		//remote webdriver
+		
 		String fromCity = "Винница";
 		String toCity = "Киев";
-		String date = "28.01.2014";
-		String time = "20:00";
+		String date = "07.03.2014";
+		String time = "16:00";
 		
 		OrderPage orderPage = new OrderPage(driver);
 		orderPage.open();

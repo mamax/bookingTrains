@@ -25,6 +25,7 @@ public abstract class Page {
 	public Page(WebDriver driver) throws Exception {
 		this.driver = BaseTest.setUp("firefox");
         PageFactory.initElements(driver, this);
+        
 	}
 	
 	public abstract void open();

@@ -7,8 +7,9 @@
  <suite-files>
   
    <suite-file path="./suite_MF.xml" />
+   <!--
    <suite-file path="./suite_GC.xml" />
-   
+   -->
   </suite-files>
  
 </suite>

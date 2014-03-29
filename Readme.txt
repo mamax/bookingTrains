@@ -1,17 +1,17 @@
-Апликейшен заходит на сайт http://booking.uz.gov.ua/ru/ и при выборе пути и даты показывает цену билетов по выбраному напрвлению, делая скриншот!
-Программа сделана мною так как часто ежу в Киев и выбираю оптимальный маршрут!
+This is th application which goes to  http://booking.uz.gov.ua/ru/ and selects the way and data, after selecting it makes a screenshot!
+Thre program is made by me as I often drive to kiev!
 
-Как запустить?
+How to run?
 
-1.Распоковать архив! 
-2.У вас есть 2 .bat файла!
-В  файл server.bat прописать путь где распакован архив!
-В  файл Run.bat прописать путь где распакован архив!
-3.Имортировать проэкт в IDE.
-4.Добавить в класпасс проєкта jar файлы из папки libs.
-5.Запустить server.bat.
-6.Запустить Run.bat.
-7.Чтобы вам пересылались скрины на почту укажите ваш пароль в ua.gov.uz.util.sendmail.java
+1. UnPack the archive! 
+2. You have 2 bat files!
+ Into the file server.bat write the way  where archive is unpacked!
+ Into the file Run.bat write the way  where archive is unpacked!
+3. Import the package into the IDE.
+4. Add jar files from libs library.
+5. Run server.bat.
+6. Run Run.bat.
+7. If you want to send emails to you please enter your surname on ua.gov.uz.util.sendmail.java
 
 mmmazurkevych@gmail.com
 Skype:frankfish90
