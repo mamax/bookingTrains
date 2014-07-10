@@ -5,7 +5,7 @@
 	</listeners>
 
 	<suite-files>
-		<test name="Test booking">
+		<test name="Test booking2">
 			<parameter name="browser" value="firefox"></parameter>
 			<classes>
 				<class name="ua.gov.uz.test.OrderTest"></class>

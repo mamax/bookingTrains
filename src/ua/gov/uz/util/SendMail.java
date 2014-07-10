@@ -4,19 +4,15 @@ package ua.gov.uz.util;
 
 //set CLASSPATH=%CLASSPATH%;activation.jar;mail.jar
 
-import java.util.Properties;
-
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
 import javax.activation.FileDataSource;
-import javax.mail.Message;
-import javax.mail.Multipart;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
+import javax.mail.*;
+
+import javax.mail.internet.*;
+
+import java.util.*;
+import java.util.zip.ZipOutputStream;
 
  
 
@@ -34,7 +30,7 @@ public class SendMail
 
                 //This is for google
                 SendMail.sendMail("maksim.mazurkevych@gmail.com",
-                		            "pass",
+                		            "bnui456detfr",
                 		            "smtp.gmail.com",
                 		            "465",
                 		            "true",
@@ -49,24 +45,58 @@ public class SendMail
                 		            "Please find the reports attached.\n\n Regards\nQA Automation",
                 		        	System.getProperty("user.dir")+"//screenshots//Kyiv.jpg", 
                 		        	"Kyiv.jpg");
+                
+//                SendMail.sendMail("maksim.mazurkevych@gmail.com",
+//    		            "bnui456detfr",
+//    		            "smtp.gmail.com",
+//    		            "465",
+//    		            "true",
+//    		            "true",
+//    		            true,
+//    		            "javax.net.ssl.SSLSocketFactory",
+//    		            "false",
+//    		            to,
+//    		            cc,
+//    		            bcc,
+//    		            "Kiev - Vinnitsa 2" +new java.util.Date ().toString (),
+//    		            "Please find the reports attached.\n\n Regards\nQA Automation",
+//    		        	System.getProperty("user.dir")+"//screenshots//Kyiv2.jpg", 
+//    		        	"Kyiv2.jpg");
            
-                SendMail.sendMail("maksim.mazurkevych@gmail.com",
-    		            "pass",
-    		            "smtp.gmail.com",
-    		            "465",
-    		            "true",
-    		            "true",
-    		            true,
-    		            "javax.net.ssl.SSLSocketFactory",
-    		            "false",
-    		            to,
-    		            cc,
-    		            bcc,
-    		            "Vinnitsa - Kiev " + new java.util.Date().toString () ,
-    		            "Please find the reports attached.\n\n Regards\nQA Automation",
-    		        	System.getProperty("user.dir")+"//screenshots//Vinnytsya.jpg", 
-    		        	"Vinnytsya.jpg");
-
+//                SendMail.sendMail("maksim.mazurkevych@gmail.com",
+//    		            "bnui456detfr",
+//    		            "smtp.gmail.com",
+//    		            "465",
+//    		            "true",
+//    		            "true",
+//    		            true,
+//    		            "javax.net.ssl.SSLSocketFactory",
+//    		            "false",
+//    		            to,
+//    		            cc,
+//    		            bcc,
+//    		            "Vinnitsa - Kiev " + new java.util.Date().toString () ,
+//    		            "Please find the reports attached.\n\n Regards\nQA Automation",
+//    		        	System.getProperty("user.dir")+"//screenshots//Vinnytsya.jpg", 
+//    		        	"Vinnytsya.jpg");
+//                
+//                SendMail.sendMail("maksim.mazurkevych@gmail.com",
+//    		            "bnui456detfr",
+//    		            "smtp.gmail.com",
+//    		            "465",
+//    		            "true",
+//    		            "true",
+//    		            true,
+//    		            "javax.net.ssl.SSLSocketFactory",
+//    		            "false",
+//    		            to,
+//    		            cc,
+//    		            bcc,
+//    		            "Vinnitsa - Kiev 2" + new java.util.Date().toString () ,
+//    		            "Please find the reports attached.\n\n Regards\nQA Automation",
+//    		        	System.getProperty("user.dir")+"//screenshots//Vinnytsya2.jpg", 
+//    		        	"Vinnytsy2.jpg");
+//
     }
 
         public  static boolean sendMail(String userName,

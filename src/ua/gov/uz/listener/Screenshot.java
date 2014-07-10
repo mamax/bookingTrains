@@ -30,7 +30,7 @@ public class Screenshot extends TestListenerAdapter {
 		//		Reporter.log("screenshot saved at " + file.getAbsolutePath()
 //				+ "//screenshots//" + result.getName() + ".jpg");
 //		Reporter.log("<a href='../" + result.getName() + ".jpg' <img src='../"	+ result.getName() + ".jpg' hight='100' width='100'/> </a>");
-//		Reporter.log("screenshot for "+ result +"<div style=\"height:768px; width: 1024px; overflow:scroll\"><img src=\"../"+result.getName() +".jpg"+"\"></div>", true);
+		Reporter.log("screenshot for "+ result +"<div style=\"height:768px; width: 1024px; overflow:scroll\"><img src=\"../"+result.getName() +".jpg"+"\"></div>", true);
 		
 		try {
 			BaseTest.CaptureScreenshot(result.getName());

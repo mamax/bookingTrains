@@ -4,12 +4,12 @@
     <listener class-name="ua.gov.uz.listener.Screenshot" />
 </listeners>
  
- <suite-files>
-  
-   <suite-file path="./suite_MF.xml" />
-   <!--
-   <suite-file path="./suite_GC.xml" />
-   -->
-  </suite-files>
+ 
+<test name="Test booking">
+<parameter name="browser" value="firefox"></parameter>
+    <classes>
+        <class name="ua.gov.uz.test.OrderTest" ></class>  
+    </classes>
+</test>
  
 </suite>

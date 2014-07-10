@@ -1,5 +1,5 @@
 
-<suite name="Suite ua.gov.uz.test">
+<suite name="Suite ua.gov.uz.test2">
 	<listeners>
 		<listener class-name="ua.gov.uz.listener.Screenshot" />
 	</listeners>
