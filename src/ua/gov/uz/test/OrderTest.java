@@ -67,11 +67,7 @@ public class OrderTest extends BaseTest{
 		
 	    CaptureScreenshot("Vinnytsya2");
 		
-		
 	}
-	
-	
-	
 	
 
 }

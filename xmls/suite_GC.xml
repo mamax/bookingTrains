@@ -1,0 +1,15 @@
+
+<suite name="Suite ua.gov.uz.test2">
+	<listeners>
+		<listener class-name="ua.gov.uz.listener.Screenshot" />
+	</listeners>
+
+	<suite-files>
+		<test name="Test booking">
+			<parameter name="browser" value="chrome"></parameter>
+			<classes>
+				<class name="ua.gov.uz.test.OrderTest"></class>
+			</classes>
+		</test>
+	</suite-files>
+</suite>
