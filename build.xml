@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="java_auto" default="build" basedir=".">
+<project name="BookingReady" default="build" basedir=".">
 
 	<property name="reportng.title" value="Booking tikets">
 	</property>
 
-	<property name="include1" value="testng.xml"></property>
+	<property name="include1" value="testng.xml">
+	</property>
 
 	<property name="suitethreadpoolsize" value="1">
 	</property>
@@ -16,10 +17,10 @@
 
 	<property name="reports.dir" value="${project.dir}/reports">
 	</property>
-	
+
 	<property name="screenshots.dir" value="${project.dir}/screenshots">
 	</property>
-	
+
 	<property name="email.dir" value="${project.dir}/email">
 	</property>
 
@@ -38,39 +39,39 @@
 		<pathelement path="${build.dir}">
 		</pathelement>
 	</path>
-	
+
 	<path id="test.c">
-			 <fileset dir="${libs.dir}" includes="*.jar"/>
-		</path>
+		<fileset dir="${libs.dir}" includes="*.jar" />
+	</path>
 
 	<target name="start-server" description="Starts selenium ">
-	        <java jar="${project.dir}/libs/selenium-server-standalone-2.37.0.jar" fork = "true"/>
-	    </target>
-	
+		<java jar="${project.dir}/libs/selenium-server-standalone-2.40.0.jar" fork="true" />
+	</target>
+
 	<target name="clean" description="Removes build directory and test results.">
-		
+
 		<delete dir="${build.dir}">
 		</delete>
-		
+
 		<delete dir="${reports.dir}">
 		</delete>
-		
+
 		<delete dir="${screenshots.dir}">
 		</delete>
-		
+
 	</target>
 
 	<target name="createdirs" depends="clean" description="Create folders needed.">
-		
+
 		<mkdir dir="${build.dir}">
 		</mkdir>
-		
+
 		<mkdir dir="${reports.dir}">
 		</mkdir>
-		
+
 		<mkdir dir="${screenshots.dir}">
 		</mkdir>
-		
+
 	</target>
 
 	<target name="compile" depends="createdirs" description="Build Java files.">
@@ -94,49 +95,45 @@
 
 		<property environment="env" />
 
-		<testng classpathref="master-classpath" outputdir="${reports.dir}" 
-		haltonfailure="false"
-		useDefaultListeners="false" 
-		listeners="org.uncommons.reportng.HTMLReporter" 
-		failureproperty="test.failure"> 
-			
-		<!--	
+		<testng classpathref="master-classpath" outputdir="${reports.dir}" haltonfailure="false" useDefaultListeners="false" listeners="org.uncommons.reportng.HTMLReporter" failureproperty="test.failure">
+
+			<!--	
 		<xmlfileset dir ="${project.dir}">
 			<include name="${include1}" />
 		</xmlfileset>
 		-->
-			
-		<xmlfileset dir="${project.dir}" includes="testng.xml" />
 
-		<sysproperty key="org.uncommons.reportng.title" value="${reportng.title}" />
-		<sysproperty key="org.uncommons.reportng.locale" value="en" />
-		<sysproperty key="org.uncommons.reportng.escape-output" value="false" />
-			
-        <sysproperty key="org.uncommons.reportng.stylesheet" value="${reportNGcss}" />
-        <!--
+			<xmlfileset dir="${project.dir}" includes="testng.xml" />
+
+			<sysproperty key="org.uncommons.reportng.title" value="${reportng.title}" />
+			<sysproperty key="org.uncommons.reportng.locale" value="en" />
+			<sysproperty key="org.uncommons.reportng.escape-output" value="false" />
+
+			<sysproperty key="org.uncommons.reportng.stylesheet" value="${reportNGcss}" />
+			<!--
         <reporter classname="util.ScreenshotHTMLReporter"/>
 		-->
-		<sysproperty key="screenshots.dir" value="${screenshots.dir}/" />
-		<sysproperty key="screenshots.url" value="${project.dir}/reports"/>
-			
-	</testng>
+			<sysproperty key="screenshots.dir" value="${screenshots.dir}/" />
+			<sysproperty key="screenshots.url" value="${project.dir}/reports" />
 
-	<sleep seconds="3" />
+		</testng>
 
-</target>
-	
+		<sleep seconds="3" />
+
+	</target>
+
 	<target name="email" depends="run" description="emailing reports.">
-				<java classname="ua.gov.uz.util.SendMail" classpath="${build.dir}" classpathref="test.c" />
-		    </target>
-	
-	
-<target name="cleanbuilddir" depends="email" description="Removes build directory.">
-	<delete dir="${build.dir}">
-	</delete>
-</target>
+		<java classname="ua.gov.uz.util.SendMail" classpath="${build.dir}" classpathref="test.c" />
+	</target>
 
-<target name="build" description="Removes previous results and test all." depends="cleanbuilddir">
-	<echo>BUILD FINISHED!</echo>
-</target>
+
+	<target name="cleanbuilddir" depends="email" description="Removes build directory.">
+		<delete dir="${build.dir}">
+		</delete>
+	</target>
+
+	<target name="build" description="Removes previous results and test all." depends="cleanbuilddir">
+		<echo>BUILD FINISHED!</echo>
+	</target>
 
 </project>

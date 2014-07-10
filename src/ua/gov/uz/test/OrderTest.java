@@ -14,13 +14,12 @@ public class OrderTest extends BaseTest{
     private ResultPage resultPage;
     private OrderPage orderPage;
 
-	
 	@Test(enabled = true, priority  = 0)
 	public void Kyiv() throws Exception{
 		
 		orderPage = PageFactory.initElements(setUp("firefox"), OrderPage.class);
 		orderPage.open();
-		resultPage = orderPage.getBilet("Киев", "Винница", "31.07.2014", "20:00");
+		resultPage = orderPage.getBilet("Киев", "Винница", "31.07.2014", "22:00");
 		resultPage.WaitForPageToLoadByCss(".num");
 		resultPage.showingPrices();
 		
@@ -37,14 +36,12 @@ public class OrderTest extends BaseTest{
 		resultPage.WaitForPageToLoadByCss(".num");
 		resultPage.showingPrices();
 		
-		
 	    CaptureScreenshot("Kyiv2");
 		
 	}
 	
 	@Test(enabled = true, priority  = 1)
 	public void Vinnytsya() throws Throwable {
-		
 		
 		orderPage = PageFactory.initElements(setUp("firefox"), OrderPage.class);
 		orderPage.open();
@@ -68,6 +65,5 @@ public class OrderTest extends BaseTest{
 	    CaptureScreenshot("Vinnytsya2");
 		
 	}
-	
 
 }

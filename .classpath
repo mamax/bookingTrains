@@ -6,6 +6,6 @@
 	<classpathentry kind="lib" path="libs/testng-6.8.5.jar"/>
 	<classpathentry kind="lib" path="libs/velocity-dep-1.4.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Program Files/Jenkins/jobs/BookingTrains/workspace/libs/selenium-server-standalone-2.40.0.jar"/>
+	<classpathentry kind="lib" path="E:/Java_workspace/WebDriverMY/HOUSE/BookingReady/libs/selenium-server-standalone-2.40.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
