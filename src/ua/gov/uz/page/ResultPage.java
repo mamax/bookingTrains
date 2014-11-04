@@ -75,9 +75,11 @@ public class ResultPage extends Page {
 			LastName.sendKeys("Mazur");
 
 			AddOrder.click();
+			Assert.assertTrue(driver.findElement(By.xpath(".//*[@id='cart_table']/tbody/tr["+i+1+"]")).isDisplayed());
 			Assert.assertTrue(Trash.isDisplayed());
 			Thread.sleep(4000L);
-
+			
+			
 		}
 
 	}

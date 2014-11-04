@@ -45,7 +45,7 @@
 	</path>
 
 	<target name="start-server" description="Starts selenium ">
-		<java jar="${project.dir}/libs/selenium-server-standalone-2.40.0.jar" fork="true" />
+		<java jar="${project.dir}/libs/selenium-server-standalone-2.44.0.jar" fork="true" />
 	</target>
 
 	<target name="clean" description="Removes build directory and test results.">

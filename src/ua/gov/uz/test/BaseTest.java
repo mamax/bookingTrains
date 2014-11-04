@@ -1,6 +1,3 @@
-/**
- * 
- */
 package ua.gov.uz.test;
 
 import java.io.File;
@@ -57,7 +54,6 @@ public class BaseTest {
 			// "//src//ua//gov//uz//resources//OR.properties");
 			// OR.load(ip2);
 			isInitalized = true;
-
 		}
 	}
 
