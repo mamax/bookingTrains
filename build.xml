@@ -123,7 +123,7 @@
 	</target>
 
 	<target name="email" depends="run" description="emailing reports.">
-		<java classname="ua.gov.uz.util.SendMail" classpath="${build.dir}" classpathref="test.c" />
+		<java classname="java.uz.util.SendMail" classpath="${build.dir}" classpathref="test.c" />
 	</target>
 
 

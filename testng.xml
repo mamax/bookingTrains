@@ -1,14 +1,13 @@
 
-<suite name="Suite ua.gov.uz.test">
+<suite name="Suite java.uz.test">
 <listeners>
     <listener class-name="ua.gov.uz.listener.Screenshot" />
 </listeners>
  
  
 <test name="Test booking">
-<parameter name="browser" value="firefox"></parameter>
     <classes>
-        <class name="ua.gov.uz.test.OrderTest" ></class>  
+        <class name="ua.gov.uz.OrderTest" ></class>
     </classes>
 </test>
  
