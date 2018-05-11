@@ -18,8 +18,6 @@ public class BaseTest extends BrowserConf {
 
 	private boolean isInitialized;
 	public static Properties CONFIG = null;
-	public static String path = System.getProperty("user.dir")
-			+ "\\target\\screenshots\\";
 
 	protected void initializeProperties() throws Exception {
 
@@ -49,12 +47,12 @@ public class BaseTest extends BrowserConf {
 	}
 
 	public static void CaptureScreenshot(String fileName) throws IOException {
-
+    String path = System.getProperty("user.dir") + File.separator + "target" + File.separator + "surefire-reports" + File.separator + "html" + File.separator + fileName + ".jpg";
 		System.out.println("pictures place " + path);
 
 		try {
 			File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-			FileUtils.copyFile(scrFile, new File(System.getProperty("user.dir") + File.separator + "target" + File.separator + "surefire-reports" + File.separator + "html" + File.separator + fileName + ".jpg"));
+			FileUtils.copyFile(scrFile, new File(path));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
