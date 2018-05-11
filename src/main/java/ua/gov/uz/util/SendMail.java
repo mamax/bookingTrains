@@ -1,5 +1,7 @@
 package ua.gov.uz.util;
 
+import org.apache.commons.codec.binary.Base64;
+
 import java.util.Properties;
 
 import javax.activation.DataHandler;
@@ -16,47 +18,13 @@ import javax.mail.internet.MimeMultipart;
 
 public class SendMail{
 
-  private static final String DECODEDPASS = "dGl0dTExMmhlc2w=";
+  private static final String MY_EMAIL = "maksim.mazurkevych@gmail.com";
 
-    public static void main(String[] args) throws Exception
-
-    {				
-//    			String[] to={"mmmazurkevych@gmail.com"};
-//
-//                String[] cc={};
-//                String[] bcc={};
-
-                //This is for google
-//                SendMail.sendMail("maksim.mazurkevych@gmail.com",
-//                                "",
-//                		            "smtp.gmail.com",
-//                		            "465",
-//                		            "true",
-//                		            "true",
-//                		            true,
-//                		            "javax.net.ssl.SSLSocketFactory",
-//                		            "false",
-//                		            to,
-//                		            cc,
-//                		            bcc,
-//                		            "Kiev - Vinnitsa " + new java.util.Date().toString(),
-//                		            "Please find the reports attached.\n\n Regards\nQA Automation",
-//                		        	System.getProperty("user.dir")+"//target//surefire-reports//html//toHome.jpg",
-//                		        	"toHome.jpg");
-//
-//                SendMail.sendMail(
-//    		            "Vinnitsa - Kiev" + new java.util.Date().toString () ,
-//    		            "Please find the reports attached.\n\n Regards\nQA Automation",
-//    		        	System.getProperty("user.dir")+"//target//surefire-reports//html//fromHome.jpg",
-//    		        	"fromHome.jpg");
-
-    }
-
-        public  static boolean sendMail(String subject,
-        		String attachmentPath,
-        		String attachmentName){
-          String userName = "maksim.mazurkevych@gmail.com";
-          String passWord= "";
+  public  static boolean sendMail(String subject,
+                                  String attachmentPath,
+                                  String attachmentName){
+          String userName = MY_EMAIL;
+          String passWord = getEncryptedPass();
           String host = "smtp.gmail.com";
           String port= "465";
           String starttls="true";
@@ -64,8 +32,8 @@ public class SendMail{
           boolean debug = true;
           String socketFactoryClass = "javax.net.ssl.SSLSocketFactory";
           String fallback = "false";
-          String[] to={"mmmazurkevych@gmail.com"};
-          String[] cc = {};
+          String[] to={MY_EMAIL};
+          String[] cc = {"maksym_mazurkevych@epam.com"};
           String[] bcc = {};
           String text = "Please find the reports attached.\n\n Regards\nQA Automation";
 
@@ -139,7 +107,7 @@ public class SendMail{
 
             // Put parts in message
             msg.setContent(multipart);
-            msg.setFrom(new InternetAddress("maksim.mazurkevych@gmail.com"));
+            msg.setFrom(new InternetAddress(MY_EMAIL));
 
                         for(int i=0;i<to.length;i++){
 
@@ -185,6 +153,10 @@ public class SendMail{
 
         }
 
- 
+  private static String getEncryptedPass() {
+    String hello = "dGl0dTExMmhlc2w=";
+    byte[] decoded = Base64.decodeBase64(hello.getBytes());
+    return new String(decoded);
+  }
 
 }
