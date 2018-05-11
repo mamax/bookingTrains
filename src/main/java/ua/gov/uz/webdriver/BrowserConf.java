@@ -82,7 +82,7 @@ public class BrowserConf{
             driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
             driver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
-            driver.manage().window().setSize(new Dimension(1500, 1300));
+            driver.manage().window().setSize(new Dimension(1600, 1366));
         }
 
         return driver;
