@@ -3,8 +3,7 @@
 <listeners>
     <listener class-name="ua.gov.uz.listener.Screenshot" />
 </listeners>
- 
- 
+
 <test name="Test booking">
     <classes>
         <class name="ua.gov.uz.OrderTest" ></class>

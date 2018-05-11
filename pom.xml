@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ua.gov.uz.bookingtrains</groupId>
-    <artifactId>BookingTrains</artifactId>
+    <groupId>ua.gov.uz</groupId>
+    <artifactId>bookingtrains</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -16,15 +16,12 @@
         <!-- Dependencies Versions -->
         <htmlelements.version>1.14</htmlelements.version>
         <google-guava.version>18.0</google-guava.version>
-        <selenium.version>2.52.0</selenium.version>
+        <selenium.version>3.0.1</selenium.version>
         <poi.version>3.13</poi.version>
         <compiler.version>1.8</compiler.version>
         <allure.version>1.4.22</allure.version>
         <ashot.version>1.5.2</ashot.version>
         <aspectj.version>1.8.7</aspectj.version>
-
-        <!-- Plugin Versions -->
-        <spring.version>4.2.4.RELEASE</spring.version>
     </properties>
 
     <developers>
@@ -44,27 +41,21 @@
         </dependency>
 
         <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-firefox-driver</artifactId>
-            <version>${selenium.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-htmlunit-driver</artifactId>
-            <version>${selenium.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.opera</groupId>
-            <artifactId>operadriver</artifactId>
-            <version>1.5</version>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>1.6.0</version>
         </dependency>
 
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ru.yandex.qatools.htmlelements</groupId>
+            <artifactId>htmlelements-all</artifactId>
+            <version>${htmlelements.version}</version>
         </dependency>
 
         <dependency>

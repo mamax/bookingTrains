@@ -1,6 +1,5 @@
 package ua.gov.uz.page;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,68 +7,85 @@ import org.openqa.selenium.support.ui.Select;
 
 public class OrderPage extends Page {
 
-	public OrderPage(WebDriver driver) {
+  public OrderPage(WebDriver driver) {
 		super(driver);
-		
-		// TODO Auto-generated constructor stub
 	}
-	
-	
-	@FindBy (xpath=".//*[@id='stations_from']/div[1]") 
+
+	@FindBy(xpath = "//*[@id='search-frm']/form/div[2]/div[2]/div[1]/div[3]/div/div[3]/table/tbody/tr[4]/td[3]/a")
+	private WebElement currentElement;
+
+	@FindBy (xpath="//div[text()='Откуда']/../ul/li[1]")
 	private WebElement suggestChoiceStationFrom;
 
-	@FindBy (xpath=".//*[@id='stations_till']/div[1]") 
+	@FindBy (xpath="//div[text()='Куда']/../ul/li[1]")
 	private WebElement suggestChoiceStationTo;
 	
-	@FindBy (name="station_from") 
+	@FindBy (name="from-title")
 	private WebElement textFieldFrom ;
 	
-	@FindBy (name="station_till") 
+	@FindBy (name="to-title")
 	private WebElement textFieldTo ;
 	
-	 @FindBy (xpath="//button[@name='search']") 
+	@FindBy (xpath="//button[@name='search']")
 	private WebElement searchButton;
-	
-	 @FindBy (xpath=".//*[@id='date_dep']") 
-	private WebElement chooseFieldDateTrip;
-	
-	
-	public ResultPage getBilet(String stationFrom , String stationTo, String date, String time){
-			
-		textFieldFrom.sendKeys(stationFrom);
-		suggestChoiceStationFrom.click();
-		
-		textFieldTo.sendKeys(stationTo);
-		suggestChoiceStationTo.click();
-		
-		setDate(date);
-		setTime(time);
-		searchButton.click();
-		
-		return new ResultPage(driver);
-	
-	}
 
+	@FindBy (xpath = "//div[@class='date']/input[@type='text']")
+	private WebElement chooseFieldDateTrip;
+
+	@FindBy(name = "timep")
+	private WebElement timeSct;
+
+  public ResultPage getTicket(String stationFrom, String stationTo, String date, String time)
+      throws InterruptedException {
+
+    switch (stationFrom){
+      case "Винница":
+        stationFrom = "2200200";
+        break;
+      case "Киев":
+        stationFrom = "2200001";
+        break;
+    }
+
+    switch (stationTo){
+      case "Винница":
+        stationTo = "2200200";
+        break;
+      case "Киев":
+        stationTo = "2200001";
+        break;
+    }
+
+    driver.navigate().to("https://booking.uz.gov.ua/ru/?from="+stationFrom+"&to="+stationTo+"&date="+date+"&time="+time+"%3A00&url=train-list");
+
+//		typeIn(textFieldFrom, stationFrom);
+//		wait.until(ExpectedConditions.elementToBeClickable(suggestChoiceStationFrom));
+//		suggestChoiceStationFrom.click();
+//
+//		typeIn(textFieldTo, stationTo);
+//		wait.until(ExpectedConditions.elementToBeClickable(suggestChoiceStationTo));
+//		suggestChoiceStationTo.click();
+//
+//		setDate(date);
+//		setTime(time);
+//		searchButton.click();
+    Thread.sleep(2000L);
+//    wait.until(ExpectedConditions.visibilityOf(table));
+		return new ResultPage(driver);
+  }
 
 	private void setTime(String time) {
-		// TODO Auto-generated method stub
-		Select sizeSct = new Select(driver.findElement(By.name("time_dep")));
-		sizeSct.selectByValue(time);
-//		sizeSct.selectByValue(value);
+		Select timeSlct = new Select(timeSct);
+		timeSlct.selectByVisibleText(time);
 	}
-
 
 	private void setDate(String date) {
-		// TODO Auto-generated method stub
-		chooseFieldDateTrip.clear();
-		chooseFieldDateTrip.sendKeys(date);
-		
+		chooseFieldDateTrip.click();
+		currentElement.click();
 	}
-
 
 	@Override
 	public void open() {
-		// TODO Auto-generated method stub
 		driver.get("http://booking.uz.gov.ua/ru/");
 	}
 	

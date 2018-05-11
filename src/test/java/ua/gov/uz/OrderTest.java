@@ -1,5 +1,6 @@
 package ua.gov.uz;
 
+import org.openqa.selenium.By;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import ua.gov.uz.page.OrderPage;
@@ -14,16 +15,31 @@ public class OrderTest extends BaseTest {
 
     private ResultPage resultPage;
 
-    @Test(enabled = true, priority  = 0)
-    public void testKyiv() throws Exception{
-
+    @Test
+    public void testDepartureFrom() throws Exception{
+      String from = "Киев";
+      String to = "Винница";
+      String time = "2018-05-29";
         OrderPage orderPage = new OrderPage(driver);
-
         orderPage.open();
-        resultPage = orderPage.getBilet("Киев", "Винница", "08.06.2016", "22:00");
-        resultPage.WaitForPageToLoadByCss(".num");
-        resultPage.showingPrices();
-        CaptureScreenshot("Kyiv");
+        resultPage = orderPage.getTicket(to, from, "2018-05-29", "02");
+        if (!orderPage.isElementPresent(By.xpath("//div[@class='search-error']"))) {
+//          resultPage.showPrices();
+          CaptureScreenshot(to+from+"_"+time);
+        }
     }
 
+  @Test
+  public void testDepartureTo() throws Exception{
+    String from = "Киев";
+    String to = "Винница";
+    String time = "2018-07-25";
+    OrderPage orderPage = new OrderPage(driver);
+    orderPage.open();
+    resultPage = orderPage.getTicket(from, to, time, "02");
+    if (!orderPage.isElementPresent(By.xpath("//div[@class='search-error']"))) {
+//      resultPage.showPrices();
+      CaptureScreenshot(from+to+"_"+time);
+    }
+  }
 }
