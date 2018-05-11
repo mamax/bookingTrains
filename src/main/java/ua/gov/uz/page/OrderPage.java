@@ -38,23 +38,8 @@ public class OrderPage extends Page {
   public ResultPage getTicket(String stationFrom, String stationTo, String date, String time)
       throws InterruptedException {
 
-    switch (stationFrom){
-      case "Винница":
-        stationFrom = "2200200";
-        break;
-      case "Киев":
-        stationFrom = "2200001";
-        break;
-    }
-
-    switch (stationTo){
-      case "Винница":
-        stationTo = "2200200";
-        break;
-      case "Киев":
-        stationTo = "2200001";
-        break;
-    }
+    stationFrom = getCodeByString(stationFrom);
+    stationTo = getCodeByString(stationTo);
 
     driver.navigate().to("https://booking.uz.gov.ua/ru/?from="+stationFrom+"&to="+stationTo+"&date="+date+"&time="+time+"%3A00&url=train-list");
 
@@ -74,7 +59,25 @@ public class OrderPage extends Page {
 		return new ResultPage(driver);
   }
 
-	private void setTime(String time) {
+  private String getCodeByString(String station) {
+    switch (station){
+      case "Винница":
+        station = "2200200";
+        break;
+      case "Киев":
+        station = "2200001";
+        break;
+      case "Вінниця":
+        station = "2200200";
+        break;
+      case "Київ":
+        station = "2200001";
+        break;
+    }
+    return station;
+  }
+
+  private void setTime(String time) {
 		Select timeSlct = new Select(timeSct);
 		timeSlct.selectByVisibleText(time);
 	}

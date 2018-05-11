@@ -25,7 +25,7 @@ public class OrderTest extends BaseTest {
         resultPage = orderPage.getTicket(to, from, "2018-05-29", "02");
         if (!orderPage.isElementPresent(By.xpath("//div[@class='search-error']"))) {
 //          resultPage.showPrices();
-          CaptureScreenshot(to+from+"_"+time);
+          CaptureScreenshot("fromHome");
         }
     }
 
@@ -39,7 +39,7 @@ public class OrderTest extends BaseTest {
     resultPage = orderPage.getTicket(from, to, time, "02");
     if (!orderPage.isElementPresent(By.xpath("//div[@class='search-error']"))) {
 //      resultPage.showPrices();
-      CaptureScreenshot(from+to+"_"+time);
+      CaptureScreenshot("toHome");
     }
   }
 }
