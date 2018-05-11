@@ -47,7 +47,7 @@ public class OrderTest extends BaseTest {
 
   private void sendMailAfter(String theme, String filename){
     SendMail.sendMail(theme + new java.util.Date().toString() ,
-        System.getProperty("user.dir")+"//target//surefire-reports//html//"+filename+".jpg",
+        System.getProperty("user.dir")+"/target/surefire-reports/html/"+filename+".jpg",
         filename+".jpg");
   }
 }
