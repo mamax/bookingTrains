@@ -21,69 +21,55 @@ public class SendMail{
     public static void main(String[] args) throws Exception
 
     {				
-    			String[] to={"mmmazurkevych@gmail.com"};
-
-                String[] cc={};
-                String[] bcc={};
+//    			String[] to={"mmmazurkevych@gmail.com"};
+//
+//                String[] cc={};
+//                String[] bcc={};
 
                 //This is for google
-                SendMail.sendMail("maksim.mazurkevych@gmail.com",
-                                "titu112hesl",
-                		            "smtp.gmail.com",
-                		            "465",
-                		            "true",
-                		            "true",
-                		            true,
-                		            "javax.net.ssl.SSLSocketFactory",
-                		            "false",
-                		            to,
-                		            cc,
-                		            bcc,
-                		            "Kiev - Vinnitsa " +new java.util.Date ().toString (),
-                		            "Please find the reports attached.\n\n Regards\nQA Automation",
-                		        	System.getProperty("user.dir")+"//target//surefire-reports//html//toHome.jpg",
-                		        	"toHome.jpg");
-           
-                SendMail.sendMail("maksim.mazurkevych@gmail.com",
-                     "titu112hesl",
-    		            "smtp.gmail.com",
-    		            "465",
-    		            "true",
-    		            "true",
-    		            true,
-    		            "javax.net.ssl.SSLSocketFactory",
-    		            "false",
-    		            to,
-    		            cc,
-    		            bcc,
-    		            "Vinnitsa - Kiev" + new java.util.Date().toString () ,
-    		            "Please find the reports attached.\n\n Regards\nQA Automation",
-    		        	System.getProperty("user.dir")+"//target//surefire-reports//html//fromHome.jpg",
-    		        	"fromHome.jpg");
+//                SendMail.sendMail("maksim.mazurkevych@gmail.com",
+//                                "",
+//                		            "smtp.gmail.com",
+//                		            "465",
+//                		            "true",
+//                		            "true",
+//                		            true,
+//                		            "javax.net.ssl.SSLSocketFactory",
+//                		            "false",
+//                		            to,
+//                		            cc,
+//                		            bcc,
+//                		            "Kiev - Vinnitsa " + new java.util.Date().toString(),
+//                		            "Please find the reports attached.\n\n Regards\nQA Automation",
+//                		        	System.getProperty("user.dir")+"//target//surefire-reports//html//toHome.jpg",
+//                		        	"toHome.jpg");
+//
+//                SendMail.sendMail(
+//    		            "Vinnitsa - Kiev" + new java.util.Date().toString () ,
+//    		            "Please find the reports attached.\n\n Regards\nQA Automation",
+//    		        	System.getProperty("user.dir")+"//target//surefire-reports//html//fromHome.jpg",
+//    		        	"fromHome.jpg");
 
     }
 
-        public  static boolean sendMail(String userName,
-        		String passWord,
-        		String host,
-        		String port,
-        		String starttls,
-        		String auth,
-        		boolean debug,
-        		String socketFactoryClass,
-        		String fallback,
-        		String[] to,
-        		String[] cc,
-        		String[] bcc,
-        		String subject,
-        		String text,
+        public  static boolean sendMail(String subject,
         		String attachmentPath,
         		String attachmentName){
+          String userName = "maksim.mazurkevych@gmail.com";
+          String passWord= "";
+          String host = "smtp.gmail.com";
+          String port= "465";
+          String starttls="true";
+          String auth= "true";
+          boolean debug = true;
+          String socketFactoryClass = "javax.net.ssl.SSLSocketFactory";
+          String fallback = "false";
+          String[] to={"mmmazurkevych@gmail.com"};
+          String[] cc = {};
+          String[] bcc = {};
+          String text = "Please find the reports attached.\n\n Regards\nQA Automation";
 
-
-                Properties props = new Properties();
-
-                //Properties props=System.getProperties();
+          Properties props = new Properties();
 
         props.put("mail.smtp.user", userName);
 
