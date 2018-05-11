@@ -1,36 +1,34 @@
 package ua.gov.uz.util;
 
- 
-
-//set CLASSPATH=%CLASSPATH%;activation.jar;mail.jar
+import java.util.Properties;
 
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
 import javax.activation.FileDataSource;
-import javax.mail.*;
+import javax.mail.Message;
+import javax.mail.Multipart;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 
-import javax.mail.internet.*;
+public class SendMail{
 
-import java.util.*;
-import java.util.zip.ZipOutputStream;
+  private static final String DECODEDPASS = "dGl0dTExMmhlc2w=";
 
- 
-
-public class SendMail
-
-{
     public static void main(String[] args) throws Exception
 
     {				
-               
-    			String[] to={"maksim.mazurkevych@gmail.com"};
+    			String[] to={"mmmazurkevych@gmail.com"};
 
                 String[] cc={};
                 String[] bcc={};
 
                 //This is for google
                 SendMail.sendMail("maksim.mazurkevych@gmail.com",
-                		            "bnui456detfr",
+                                "titu112hesl",
                 		            "smtp.gmail.com",
                 		            "465",
                 		            "true",
@@ -43,11 +41,11 @@ public class SendMail
                 		            bcc,
                 		            "Kiev - Vinnitsa " +new java.util.Date ().toString (),
                 		            "Please find the reports attached.\n\n Regards\nQA Automation",
-                		        	System.getProperty("user.dir")+"//screenshots//Kyiv.jpg", 
-                		        	"Kyiv.jpg");
+                		        	System.getProperty("user.dir")+"//target//surefire-reports//html//toHome.jpg",
+                		        	"toHome.jpg");
            
                 SendMail.sendMail("maksim.mazurkevych@gmail.com",
-    		            "bnui456detfr",
+                     "titu112hesl",
     		            "smtp.gmail.com",
     		            "465",
     		            "true",
@@ -58,14 +56,12 @@ public class SendMail
     		            to,
     		            cc,
     		            bcc,
-    		            "Vinnitsa - Kiev " + new java.util.Date().toString () ,
+    		            "Vinnitsa - Kiev" + new java.util.Date().toString () ,
     		            "Please find the reports attached.\n\n Regards\nQA Automation",
-    		        	System.getProperty("user.dir")+"//screenshots//Vinnytsya.jpg", 
-    		        	"Vinnytsya.jpg");
+    		        	System.getProperty("user.dir")+"//target//surefire-reports//html//fromHome.jpg",
+    		        	"fromHome.jpg");
 
     }
-
- 
 
         public  static boolean sendMail(String userName,
         		String passWord,
