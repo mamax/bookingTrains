@@ -1,5 +1,6 @@
 package ua.gov.uz.webdriver;
 
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
@@ -81,7 +82,7 @@ public class BrowserConf{
             driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
             driver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
-            driver.manage().window().maximize();
+            driver.manage().window().setSize(new Dimension(1600, 1366));
         }
 
         return driver;
