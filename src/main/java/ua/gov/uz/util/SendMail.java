@@ -4,15 +4,19 @@ package ua.gov.uz.util;
 
 //set CLASSPATH=%CLASSPATH%;activation.jar;mail.jar
 
+import java.util.Properties;
+
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
 import javax.activation.FileDataSource;
-import javax.mail.*;
-
-import javax.mail.internet.*;
-
-import java.util.*;
-import java.util.zip.ZipOutputStream;
+import javax.mail.Message;
+import javax.mail.Multipart;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 
  
 
@@ -30,7 +34,7 @@ public class SendMail
 
                 //This is for google
                 SendMail.sendMail("maksim.mazurkevych@gmail.com",
-                		            "bnui456detfr",
+                		            "",
                 		            "smtp.gmail.com",
                 		            "465",
                 		            "true",
@@ -47,7 +51,7 @@ public class SendMail
                 		        	"Kyiv.jpg");
            
                 SendMail.sendMail("maksim.mazurkevych@gmail.com",
-    		            "bnui456detfr",
+    		            "",
     		            "smtp.gmail.com",
     		            "465",
     		            "true",
