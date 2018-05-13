@@ -15,13 +15,8 @@
 
         <!-- Dependencies Versions -->
         <htmlelements.version>1.14</htmlelements.version>
-        <google-guava.version>18.0</google-guava.version>
-        <selenium.version>3.0.1</selenium.version>
-        <poi.version>3.13</poi.version>
+        <selenium.version>3.4.0</selenium.version>
         <compiler.version>1.8</compiler.version>
-        <allure.version>1.4.22</allure.version>
-        <ashot.version>1.5.2</ashot.version>
-        <aspectj.version>1.8.7</aspectj.version>
     </properties>
 
     <developers>
@@ -43,7 +38,7 @@
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>1.6.0</version>
+            <version>2.1.0</version>
         </dependency>
 
         <dependency>
@@ -58,44 +53,11 @@
             <version>${htmlelements.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>velocity</groupId>
-            <artifactId>velocity</artifactId>
-            <version>1.4</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.uncommons</groupId>
-            <artifactId>reportng</artifactId>
-            <version>1.1.4</version>
-            <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.testng</groupId>
-                    <artifactId>testng</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
         <!-- Java Mail API -->
-
         <dependency>
             <groupId>javax.mail</groupId>
             <artifactId>mail</artifactId>
             <version>1.4</version>
-        </dependency>
-
-        <dependency>
-            <groupId>javax.mail</groupId>
-            <artifactId>javax.mail-api</artifactId>
-            <version>1.5.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>javax.mail</groupId>
-            <artifactId>mailapi</artifactId>
-            <version>1.4.3</version>
         </dependency>
 
     </dependencies>
@@ -121,10 +83,6 @@
                         <property>
                             <name>listener</name>
                             <value>ua.gov.uz.listener.Screenshot</value>
-                        </property>
-                        <property>
-                            <name>listener</name>
-                            <value>org.uncommons.reportng.HTMLReporter</value>
                         </property>
                         <property>
                             <name>outputDir</name>
