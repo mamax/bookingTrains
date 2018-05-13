@@ -1,4 +1,5 @@
-bookingTrains
-=============
+###bookingTrains
+[![Build Status](https://travis-ci.org/mamax/bookingTrains.svg?branch=master)](https://travis-ci.org/mamax/bookingTrains)
 
-bookingTrains with Selenium WD
+Booking trains with Selenium Webdriver
+
